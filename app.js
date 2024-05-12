@@ -67,7 +67,13 @@ const phones = [
 ];
 
 
-const arr = [];
+let arr = [];
+let items = JSON.parse(localStorage.getItem('cartItems'));
+if(items === null){
+    arr = [];
+}else{
+    arr = items;
+}
 
 const div = document.querySelector('.products');
 function renderItems() {
@@ -75,12 +81,12 @@ function renderItems() {
         div.innerHTML += `
         <div class="card bg-light text-subtle border---bs-warning-border-subtle" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">${phones[i].brand + ' ' + phones[i].model}</h5>
-            <p class="card-text">Rs ${phones[i].model}</p>
-            <p class="card-text">Rs ${phones[i].ram}</p>
-            <p class="card-text">Rs ${phones[i].rom}</p>
-            <p class="card-text">Rs ${phones[i].camera}</p>
-            <p class="card-text">Rs ${phones[i].price}</p>
+            <h5 class="card-title">Brand:${phones[i].brand + ' ' + phones[i].model}</h5>
+            <p class="card-text">Model: ${phones[i].ram}</p>
+            <p class="card-text">Ram: ${phones[i].model}</p>
+            <p class="card-text">Rom: ${phones[i].rom}</p>
+            <p class="card-text">Camera: ${phones[i].camera}</p>
+            <p class="card-text">Price: ${phones[i].price}</p>
             <button onclick="addtocart(${i})" class="btn btn-primary">Add to Cart</button>
         </div>
     </div>
@@ -102,5 +108,6 @@ function addtocart(index) {
 
 function gotocart() {
     console.log('cart');
+    localStorage.setItem('Irfan', JSON.stringify(arr));
     window.location = 'cart.html';
 }
