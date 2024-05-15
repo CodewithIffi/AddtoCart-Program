@@ -5,7 +5,7 @@ const phones = [
         ram: 8,
         rom: 256,
         camera: '20 megapixel',
-        price: 15000
+        price: 150000
     },
     {
         brand: 'Xiomi',
@@ -13,7 +13,7 @@ const phones = [
         ram: 4,
         rom: 64,
         camera: '10 megapixel',
-        price: 15000
+        price: 35000
     },
     {
         brand: 'Infinix',
@@ -29,7 +29,7 @@ const phones = [
         ram: 12,
         rom: 512,
         camera: '25 megapixel',
-        price: 15000
+        price: 25000
     },
     {
         brand: 'Iphone',
@@ -37,7 +37,7 @@ const phones = [
         ram: 4,
         rom: 1024,
         camera: '30 megapixel',
-        price: 15000
+        price: 250000
     },
     {
         brand: 'Oppo',
@@ -45,7 +45,7 @@ const phones = [
         ram: 8,
         rom: 256,
         camera: '20 megapixel',
-        price: 15000
+        price: 30000
     },
     {
         brand: 'Vivo',
@@ -53,7 +53,7 @@ const phones = [
         ram: 4,
         rom: 64,
         camera: '8 megapixel',
-        price: 15000
+        price: 55000
     },
     {
         brand: 'Samsung',
@@ -69,9 +69,9 @@ const phones = [
 
 let arr = [];
 let items = JSON.parse(localStorage.getItem('cartItems'));
-if(items === null){
+if (items === null) {
     arr = [];
-}else{
+} else {
     arr = items;
 }
 
@@ -108,6 +108,6 @@ function addtocart(index) {
 
 function gotocart() {
     console.log('cart');
-    localStorage.setItem('Irfan', JSON.stringify(arr));
+    localStorage.setItem('cartItems', JSON.stringify(arr));
     window.location = 'cart.html';
 }
