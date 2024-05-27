@@ -87,7 +87,7 @@ function renderItems() {
             <p class="card-text">Rom: ${phones[i].rom}</p>
             <p class="card-text">Camera: ${phones[i].camera}</p>
             <p class="card-text">Price: ${phones[i].price}</p>
-            <button onclick="addtocart(${i})" class="btn btn-primary">Add to Cart</button>
+            <button onclick="addtocart(${i})" class="btn btn-warning">Add to Cart</button>
         </div>
     </div>
         `
