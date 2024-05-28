@@ -9,48 +9,47 @@ function renderItems() {
     let total = 0;
     if (cartItems != null && cartItems.length > 0) {
         for (let i = 0; i < cartItems.length; i++) {
-            total += cartItems[i].price * cartItems[i].quantity
+            total += cartItems[i].price * cartItems[i].quantity;
             div.innerHTML += `
-            <div class="border border-light roundedd m-5 p-3"> 
+          <div class="border border-light roundedd m-5 p-3">
             <h1> Brand: ${cartItems[i].brand + ' ' + cartItems[i].model}</h1>Quantity:
             <button class="btn btn-primary" onclick="addQuantity(${i})"> + </button>
             <button class="btn btn-primary" onclick="lessQuantity(${i})"> - </button>
             <h1>Price: ${cartItems[i].price * cartItems[i].quantity}</h1>
             <button class="btn btn-primary" onclick="deleteItem(${i})">Delete</button>
-            </div>
-
-            `
+          </div>
+        `;
         }
-        totalamount.innerHTML = `Total Amount = ${total}`
-
+        totalamount.innerHTML = `Total Amount = ${total}`;
     } else {
-        div.innerHTML = `
-            <h3 class="text-center">No Item Found...</h3>
-            `
+        div.innerHTML = `<h3 class="text-center">No Item Found...</h3>`;
+        localStorage.removeItem('cartItems');
+        totalAmount.innerHTML = '';
     }
 }
-
 renderItems()
 
-function addQuantity(i){
+
+function addQuantity(i) {
     div.innerHTML = "";
-    cartItems[i].quantity =+ 1
+    cartItems[i].quantity += 1;
     renderItems()
     console.log(cartItems);
 }
-function lessQuantity(i){
-    div.innerHTML = ''
-    if(cartItems[i].quantity <= 1){
-        cartItems.splice(i , 1);
-    }else{
-        cartItems[i].quantity -= 1
+function lessQuantity(i) {
+    div.innerHTML = "";
+    if (cartItems[i].quantity <= 1) {
+        cartItems.splice(i, 1);
+    } else {
+        cartItems[i].quantity -= 1;
+
     }
     renderItems()
 }
 
-function deleteItem(i){
+function deleteItem(i) {
     div.innerHTML = ''
-    cartItems.splice(i , 1);
+    cartItems.splice(i, 1);
     totalamount.innerHTML = ''
     renderItems()
 }
